@@ -4,7 +4,7 @@ WarmStorageChain is an open-source project that leverages blockchain technology 
 
 ## Introduction
 
-WarmStorageChain aims to revolutionize the way data is stored in decentralized systems by introducing a novel heating Layer 2 solution. This layer ensures that data stored on the Filecoin network remains readily accessible and performs optimally, addressing common issues such as latency and accessibility. By integrating with the Cosmos SDK and Filecoin, WarmStorageChain combines the best of blockchain interoperability and decentralized file storage.
+WarmStorageChain is designed to address the common challenges faced by decentralized storage systems, such as latency and data accessibility. By introducing a heating Layer 2 solution, WarmStorageChain ensures that data stored on the Filecoin network is kept in a 'warm' state, meaning it is quickly retrievable and consistently performant. The project integrates Cosmos SDK for blockchain interoperability and Filecoin for decentralized file storage.
 
 ## Features
 
