@@ -45,32 +45,27 @@ In a decentralized storage system like Filecoin, data is typically stored in a m
 5. **Blockchain Storage**: The retrieved data is stored in the memory and disk storage of the blockchain nodes, ensuring fast access. The data storage utilizes the RAFT consensus algorithm to maintain consistency and high availability.
 6. **Data Retrieval**: When a data request is made, the heating Layer2 ensures that the data is quickly retrieved, reducing latency and improving efficiency.
 
-## Getting Started
+## Get started
 
-### Prerequisites
+```
+ignite chain serve
+```
 
-- [Go](https://golang.org/) (for Cosmos SDK)
-- [Filecoin](https://filecoin.io/) node
-- [Cosmos Ignite CLI](https://docs.ignite.com/guide/install)
+`serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
 
-### Installation
+### Configure
 
-1. Clone the repository:
+Your blockchain in development can be configured with `config.yml`. 
 
-    ```bash
-    git clone
-    cd WarmStorageChain
-    ```
-    
-3. Initialize the blockchain:
+### Web Frontend
 
-    ```bash
-    cd warmstoragechain
-    ignite chain serve
-    ```
+Ignite CLI has scaffolded a Vue.js-based web app in the `vue` directory. Run the following commands to install dependencies and start the app:
 
-### Usage
-
+```
+cd vue
+npm install
+npm run serve
+```
 
 ## Contributing
 
