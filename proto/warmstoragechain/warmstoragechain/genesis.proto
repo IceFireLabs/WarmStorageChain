@@ -1,12 +1,16 @@
 syntax = "proto3";
+
 package blockcraftsman.warmstoragechain.warmstoragechain;
 
 import "gogoproto/gogo.proto";
 import "warmstoragechain/warmstoragechain/params.proto";
+import "warmstoragechain/warmstoragechain/resource.proto";
 
 option go_package = "github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types";
 
 // GenesisState defines the warmstoragechain module's genesis state.
 message GenesisState {
-  Params params = 1 [(gogoproto.nullable) = false];
+           Params   params       = 1 [(gogoproto.nullable) = false];
+  repeated Resource resourceList = 2 [(gogoproto.nullable) = false];
 }
+

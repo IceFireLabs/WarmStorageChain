@@ -1,26 +1,58 @@
 syntax = "proto3";
+
 package blockcraftsman.warmstoragechain.warmstoragechain;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "warmstoragechain/warmstoragechain/params.proto";
+import "warmstoragechain/warmstoragechain/resource.proto";
 
 option go_package = "github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/BlockCraftsman/WarmStorageChain/warmstoragechain/params";
+  
+  }
+  
+  // Queries a list of Resource items.
+  rpc Resource    (QueryGetResourceRequest) returns (QueryGetResourceResponse) {
+    option (google.api.http).get = "/BlockCraftsman/WarmStorageChain/warmstoragechain/resource/{index}";
+  
+  }
+  rpc ResourceAll (QueryAllResourceRequest) returns (QueryAllResourceResponse) {
+    option (google.api.http).get = "/BlockCraftsman/WarmStorageChain/warmstoragechain/resource";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetResourceRequest {
+  string index = 1;
+}
+
+message QueryGetResourceResponse {
+  Resource resource = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllResourceRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllResourceResponse {
+  repeated Resource                               resource   = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
