@@ -124,7 +124,7 @@ const fetch = async () => {
         >
       ] as any
     ).query[props.commandName]()
-  ).data[props.itemName];
+  ).data[props.itemName.toLowerCase()];
 };
 const refetch = async () => {
   items.value = await fetch();
