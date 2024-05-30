@@ -1,0 +1,7 @@
+syntax = "proto3";
+package blockcraftsman.warmstoragechain.warmstoragechain;
+
+option go_package = "github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types";
+
+// Msg defines the Msg service.
+service Msg {}
