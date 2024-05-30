@@ -1,0 +1,11 @@
+syntax = "proto3";
+package blockcraftsman.warmstoragechain.warmstoragechain;
+
+option go_package = "github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types";
+
+message Resource {
+  string index = 1; 
+  string cid = 2; 
+  string creator = 3;
+}
+

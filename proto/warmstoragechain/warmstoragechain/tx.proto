@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package blockcraftsman.warmstoragechain.warmstoragechain;
+
+import "warmstoragechain/warmstoragechain/resource.proto";
+
+option go_package = "github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types";
+
+// Msg defines the Msg service.
+service Msg {
+  rpc CreateResource (MsgCreateResource) returns (MsgCreateResourceResponse);
+  rpc UpdateResource (MsgUpdateResource) returns (MsgUpdateResourceResponse);
+  rpc DeleteResource (MsgDeleteResource) returns (MsgDeleteResourceResponse);
+}
+message MsgCreateResource {
+  string creator = 1;
+  string index   = 2;
+  string cid     = 3;
+}
+
+message MsgCreateResourceResponse {}
+
+message MsgUpdateResource {
+  string creator = 1;
+  string index   = 2;
+  string cid     = 3;
+}
+
+message MsgUpdateResourceResponse {}
+
+message MsgDeleteResource {
+  string creator = 1;
+  string index   = 2;
+}
+
+message MsgDeleteResourceResponse {}
+
