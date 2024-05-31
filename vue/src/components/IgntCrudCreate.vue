@@ -1,7 +1,7 @@
 <template>
   <IgntModal
     :visible="true"
-    :title="`Create ${itemName}`"
+    :title="`Add ${itemName}`"
     :close-icon="true"
     :submit-button="true"
     :cancel-button="true"

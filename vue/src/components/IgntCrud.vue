@@ -1,14 +1,15 @@
 <template>
   <div v-if="moduleAvailable" class="container mx-auto">
     <div class="flex justify-between pt-10 pb-4">
-      <div class="font-bold text-4xl">{{ moduleNameNormalized }} items</div>
+      <!--<div class="font-bold text-4xl">{{ moduleNameNormalized }} items</div> -->
+      <div class="font-bold text-4xl">Hot Storage Tier Resources</div>
       <div class="col-6 text-align--right">
         <IgntButton
           type="primary"
           :disabled="!address"
           @click="visibleModal = 'create-item'"
         >
-          Create {{ moduleNameNormalized }}
+          Create  {{ moduleNameNormalized }}
         </IgntButton>
       </div>
     </div>

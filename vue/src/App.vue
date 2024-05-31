@@ -4,13 +4,14 @@ import IgntHeader from "./components/IgntHeader.vue";
 
 const items = [
   {
-    label: "Portfolio",
+    label: "Hot Storage Browser",
     to: "/",
   },
   {
-    label: "Data",
-    to: "/data",
+    label: "Wallet",
+    to: "/wallet",
   },
+  
 ];
 </script>
 
