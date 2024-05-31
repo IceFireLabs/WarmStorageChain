@@ -1,6 +1,6 @@
 <template>
   <header class="flex p-5">
-    <IgntLogo class="mx-2.5" />
+    <img :src="logo" style="width:50px;border-radius: 50%;" /> 
     <nav class="flex flex-1 justify-between">
       <ul class="flex items-center">
         <li
@@ -20,6 +20,7 @@ import { ref, type PropType } from "vue";
 import { IgntLink } from "@ignt/vue-library";
 import IgntAcc from "@/components/IgntAcc.vue";
 import { IgntLogo } from "@ignt/vue-library";
+import logo from "@/assets/icon.png";
 
 type MenuItem = {
   label: string;

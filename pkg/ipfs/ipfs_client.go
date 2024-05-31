@@ -29,7 +29,7 @@ var (
 // init initializes the global variable ipfsClientSingle with a new instance of IPFSClient.
 // The IPFSClient is configured with the scheme "http", host and port .
 func init() {
-	ipfsClientSingle = NewIPFSClient("http", "64.112.124.220", 62156)
+	ipfsClientSingle = NewIPFSClient("http", "127.0.0.1", 62156)
 }
 
 func GetReuseIPFSClient() *IPFSClient {

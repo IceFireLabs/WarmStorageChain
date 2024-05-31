@@ -1,22 +1,14 @@
 package keeper
 
 import (
-	"errors"
 	"log"
+	"os"
 
 	"github.com/BlockCraftsman/WarmStorageChain/pkg/ipfs"
 	"github.com/BlockCraftsman/WarmStorageChain/x/warmstoragechain/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/patrickmn/go-cache"
 )
-
-var MemKV *cache.Cache
-
-func init() {
-	MemKV = cache.New(cache.NoExpiration, cache.NoExpiration)
-
-}
 
 // SetResource set a specific resource in the store from its index
 func (k Keeper) SetResource(ctx sdk.Context, resource types.Resource) {
@@ -24,20 +16,20 @@ func (k Keeper) SetResource(ctx sdk.Context, resource types.Resource) {
 
 	// Filecoin CID retrieval
 	CID := resource.Cid
-	dataS, err := ipfs.GetDATAFromIPFSCID(ipfs.GetReuseIPFSClient(), CID)
+	// dataS, err := ipfs.GetDATAFromIPFSCID(ipfs.GetReuseIPFSClient(), CID)
 
-	if err != nil {
-		log.Println("SetResource Error", err)
-		return
-	}
+	// if err != nil {
+	// 	log.Println("SetResource Error", err)
+	// 	return
+	// }
 
-	//Just store the first CID file
-	if len(dataS) < 1 {
-		log.Println(errors.New("data of CID is nil"))
-		return
-	}
+	// //Just store the first CID file
+	// if len(dataS) < 1 {
+	// 	log.Println(errors.New("data of CID is nil"))
+	// 	return
+	// }
 
-	CIDdata := dataS[0]
+	// CIDdata := dataS[0]
 
 	// err = KVDB.Put([]byte(resource.Index), CIDdata, nil)
 
@@ -45,9 +37,23 @@ func (k Keeper) SetResource(ctx sdk.Context, resource types.Resource) {
 	// 	log.Println("SetResource NoSQLDB.Set Fail ", err)
 	// 	return
 	// }
-	MemKV.Set(resource.Index, CIDdata, cache.NoExpiration)
+	//MemKV.Set(resource.Index, CIDdata, cache.NoExpiration)
+	CIDExtraOutPutFullDir := CIDExtraOutPutDir + "/" + resource.Index
 
-	log.Println("SetResource NoSQLDB.Set Success", "Key", resource.Index, "Value length", len(CIDdata))
+	err := os.MkdirAll(CIDExtraOutPutFullDir, 0755)
+	if err != nil {
+		log.Println("SetResource Fail", "Key", resource.Index, err)
+		return
+	}
+
+	CIDExtraOutPutFullPath := CIDExtraOutPutDir + "/" + resource.Index + "/" + CID
+	_, err = ipfs.ExtraCIDToDir(ipfs.GetReuseIPFSClient(), CID, CIDExtraOutPutFullPath)
+	if err != nil {
+		log.Println("SetResource Fail", "Key", resource.Index, "stroage Path", CIDExtraOutPutFullPath, err)
+		return
+	}
+
+	log.Println("SetResource Success", "Key", resource.Index, "stroage Path", CIDExtraOutPutFullPath)
 
 	b := k.cdc.MustMarshal(&resource)
 	store.Set(types.ResourceKey(

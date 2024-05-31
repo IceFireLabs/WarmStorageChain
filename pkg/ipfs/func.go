@@ -2,6 +2,38 @@ package ipfs
 
 import "os"
 
+func ExtraCIDToDir(ipfsC *IPFSClient, cid string, outputdir string) (filesCount int, err error) {
+	// Retrieve the data from the given CID using the provided IPFSClient instance.
+	data, err := ipfsC.GetDataFromCID(cid)
+	if err != nil {
+		return -1, err
+	}
+
+	// Create a temporary file to store the CAR (IPFS Content Addressing: References) data.
+	fcar, err := os.CreateTemp("", cid+"Car")
+	if err != nil {
+		return -1, err
+	}
+
+	// Defer the removal of the temporary file when the function exits.
+	defer os.Remove(fcar.Name())
+
+	// Write the retrieved data to the temporary file.
+	_, err = fcar.Write(data)
+	if err != nil {
+		return -1, err
+	}
+	fcar.Close()
+
+	// Extract the files from the CAR data to the temporary directory.
+	filesCount, err = ExtractCarFile(fcar.Name(), outputdir)
+	if err != nil {
+		return -1, err
+	}
+
+	return
+}
+
 // GetDATAFromIPFSCID retrieves the data from an IPFS CID, extracts the WASM files, and returns them as byte slices.
 //
 // Parameters:
@@ -14,7 +46,7 @@ import "os"
 //
 // Note: This function assumes that the CID contains WASM files and that the extracted files are stored in a temporary directory.
 func GetDATAFromIPFSCID(ipfsC *IPFSClient, cid string) (D [][]byte, err error) {
-	// Retrieve the data from the given CID using the provided IPFSClient instance.
+	// Retrieve the data from the given 1CID using the provided IPFSClient instance.
 	data, err := ipfsC.GetDataFromCID(cid)
 	if err != nil {
 		return nil, err

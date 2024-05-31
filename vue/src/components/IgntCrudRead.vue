@@ -7,9 +7,12 @@
         class="flex justify-between mb-6 items-start"
       >
         <div
-          class="w-10 bg-gray-100 flex items-center justify-center h-10 rounded-lg mr-4"
+          class="w-50 bg-red-50 flex items-right justify-center h-10 rounded-lg mr-6"
         >
-          <IgntFileIcon class="text-3xl" />
+          <IgntFileIcon class="text-3xl" /> 
+          <div class="text-sm text-blue-400 font-semibold capitalize">
+          <a :href="'https://fetch.warmstorage.xyz/'+item.index+'/'+item.cid" target="_blank">Browse Files</a> 
+          </div>
         </div>
         <div class="flex-1">
           <div v-for="field in itemFields.fields" :key="'field_' + field">
