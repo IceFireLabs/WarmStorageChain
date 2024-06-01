@@ -59,22 +59,22 @@ The following diagram illustrates the WarmStorageChain architecture:
            |                           |
            |                           |
            v                           v
++----------+----------+     +----------+--------------+
+| WarmStorageChain API|     |     ABCI Function       |
+| (Filecoin CID & Fee)|     |(Trigger filecoin Lassie)|
++----------+----------+     +----------+--------------+
+           |                           |
+           v                           v
 +----------+----------+     +----------+---------+
-| WarmStorageChain API|     |     ABCI Function  |
-|  (Receive CID & Fee) |     |   (Trigger Lassie)|
+| Lassie Retrieval Tool|    |  Filecoin Storage  |
+|  (Fetch Data via CID)|    |  (Decentralized)   |
 +----------+----------+     +----------+---------+
            |                           |
            v                           v
 +----------+----------+     +----------+---------+
-| Lassie Retrieval Tool|     |Filecoin Storage   |
-|  (Fetch Data via CID)|     |  (Decentralized)  |
-+----------+----------+     +----------+---------+
-           |                           |
-           v                           v
-+----------+----------+     +----------+---------+
-|   Store Data on     |     | Transaction Logging|
-| WarmStorageChain Node|     | (Blockchain Record)|
-|    (Heating Layer2)  |     |                   |
+|   Store Data on      |    | Transaction Logging|
+| WarmStorageChain Node|    | (Blockchain Record)|
+|    (Heating Layer2)  |    |                    |
 +----------+----------+     +----------+---------+
            |
            v
