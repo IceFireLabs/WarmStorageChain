@@ -132,6 +132,14 @@ Before you begin, ensure you have met the following requirements:
     pnpm run dev
     ```
 
+### VIII.III Demo Video
+
+
+
+https://github.com/BlockCraftsman/WarmStorageChain/assets/167502426/30c9622d-932e-4cf8-b9a9-e774985928ec
+
+
+
 ## IX. Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
