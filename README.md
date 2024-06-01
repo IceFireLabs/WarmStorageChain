@@ -1,6 +1,6 @@
 # WarmStorageChain
 
-WarmStorageChain is an innovative open-source project designed to address the common challenges faced by decentralized storage systems, specifically focusing on data latency and accessibility. By leveraging blockchain technology, WarmStorageChain implements a heating Layer2 solution for the Filecoin storage network. This layer ensures that data remains in a 'warm' state, meaning it is quickly retrievable and consistently performant.
+WarmStorageChain is an innovative open-source project designed to address the common challenges faced by decentralized storage systems, specifically focusing on data latency and accessibility. By leveraging blockchain technology, WarmStorageChain implements a hot storage tier blockchain solution for the Filecoin storage network. This layer ensures that data remains in a 'warm' state, meaning it is quickly retrievable, reducing latency, and ensuring high availability.
 
 ## I. Overview
 
@@ -8,7 +8,7 @@ Decentralized storage systems like Filecoin offer robust, secure, and scalable s
 
 ## II. Solution: Hot Storage and Retrieval Tier
 
-WarmStorageChain introduces a heating Layer2 solution to mitigate the latency issues inherent in decentralized storage systems. The heating Layer2 ensures that frequently accessed data remains in a 'warm' state, providing quicker retrieval times and improved overall performance. This solution is achieved through the integration of several key technologies:
+WarmStorageChain introduces a hot storage tier blockchain solution to mitigate the latency issues inherent in decentralized storage systems. The hot storage tier ensures that frequently accessed data remains in an optimal state for quick access, addressing the cold storage problem and enhancing data reliability. This solution is achieved through the integration of several key technologies:
 
 - **Filecoin**: A decentralized storage network that transforms cloud storage into an algorithmic market. Filecoin's robust and secure storage capabilities serve as the foundation for WarmStorageChain's data storage.
 - **Tendermint ABCI (Application Blockchain Interface)**: The ABCI layer connects the blockchain with external processes, such as Filecoin retrieval tools. This integration allows WarmStorageChain to fetch Content Identifiers (CIDs) from Filecoin and store the retrieved data on blockchain nodes.
@@ -17,8 +17,8 @@ WarmStorageChain introduces a heating Layer2 solution to mitigate the latency is
 ## III. Key Features
 
 - **Filecoin Integration**: Leverages Filecoin for decentralized, secure, and scalable file storage.
-- **Heating Layer2 Chain**: Keeps frequently accessed data in an optimal state for quick access, addressing the cold storage problem and enhancing data reliability.
-- **Enhanced Efficiency**: Reduces latency and improves data retrieval times through an innovative heating mechanism.
+- **Hot Storage Tier Blockchain**: Keeps frequently accessed data in an optimal state for quick access, reducing latency and improving overall performance.
+- **Enhanced Efficiency**: Reduces latency and improves data retrieval times through an innovative hot storage tier blockchain mechanism.
 
 ## IV. Detailed Workflow
 
@@ -27,8 +27,8 @@ WarmStorageChain introduces a heating Layer2 solution to mitigate the latency is
 3. **Payment Processing**: The user pays a fee for the retrieval service. Once the payment is confirmed, the blockchain ABCI function is triggered.
 4. **Data Retrieval Using Lassie**: The ABCI layer uses Filecoin's Lassie retrieval tool to fetch the data associated with the CID.
 5. **Storing Retrieved Data**: Upon successful retrieval, WarmStorageChain stores the data on the disk storage of the blockchain nodes.
-6. **Transaction Logging**: The retrieval and storage transaction is recorded on the blockchain, ensuring transparency and traceability.
-7. **Data Access**: When a data request is made, the heating Layer2 ensures that the data is quickly retrieved from the blockchain nodes' storage, reducing latency and improving efficiency.
+6. **Transaction Logging**: The retrieval and storage transaction are recorded on the blockchain, ensuring transparency and traceability.
+7. **Data Access**: When a data request is made, the hot storage tier blockchain ensures that the data is quickly retrieved from the blockchain nodes' storage, reducing latency and improving efficiency.
 
 ## V. Integration and Interoperability
 
@@ -36,7 +36,7 @@ WarmStorageChain's integration with Filecoin allows it to leverage Filecoin's de
 
 ## VI. Benefits
 
-- **Reduced Latency**: By maintaining frequently accessed data in a warm state, WarmStorageChain significantly reduces data retrieval times.
+- **Reduced Latency**: By maintaining frequently accessed data in an optimal state, WarmStorageChain significantly reduces data retrieval times.
 - **Enhanced Interoperability**: Uses the ABCI protocol to interact seamlessly with Filecoin and other blockchain networks.
 
 ## VII. How It's Made
