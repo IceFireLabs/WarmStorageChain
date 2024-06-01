@@ -1,83 +1,153 @@
 # WarmStorageChain
 
-WarmStorageChain is an open-source project that leverages blockchain technology to implement a heating Layer 2 solution for the Filecoin storage network. This project aims to enhance data reliability and efficiency by ensuring that stored data remains readily accessible and performs optimally.
+WarmStorageChain is an innovative open-source project designed to address the common challenges faced by decentralized storage systems, specifically focusing on data latency and accessibility. By leveraging blockchain technology, WarmStorageChain implements a heating Layer2 solution for the Filecoin storage network. This layer ensures that data remains in a 'warm' state, meaning it is quickly retrievable and consistently performant.
 
-## Introduction
+## I. Overview
 
-### What is WarmStorageChain?
+Decentralized storage systems like Filecoin offer robust, secure, and scalable storage solutions by distributing data across a network of nodes. However, the decentralized nature of these systems often leads to increased latency and slower access times, especially for data that is not frequently accessed (cold storage). This latency can significantly impact the performance and user experience of applications relying on decentralized storage.
 
-WarmStorageChain is designed to address the common challenges faced by decentralized storage systems, such as latency and data accessibility. By introducing a heating Layer 2 solution, WarmStorageChain ensures that data stored on the Filecoin network is kept in a 'warm' state, meaning it is quickly retrievable and consistently performant. The project integrates Cosmos SDK, Filecoin, and the Application Blockchain Interface (ABCI) to create a robust and efficient decentralized storage solution.
+## II. Solution: Hot Storage and Retrieval Tier
 
-### Key Components
+WarmStorageChain introduces a heating Layer2 solution to mitigate the latency issues inherent in decentralized storage systems. The heating Layer2 ensures that frequently accessed data remains in a 'warm' state, providing quicker retrieval times and improved overall performance. This solution is achieved through the integration of several key technologies:
 
-- **Cosmos SDK**: A framework for building custom, interoperable blockchain applications on top of Tendermint BFT.
-- **Filecoin**: A decentralized storage network that turns cloud storage into an algorithmic market.
-- **Heating Layer 2**: A secondary layer designed to keep frequently accessed data readily available, reducing latency and improving access times.
-- **ABCI Layer**: Application Blockchain Interface layer to connect the Cosmos blockchain with external processes such as Filecoin retrieval tools.
-- **RAFT Consensus Algorithm**: Ensures high availability and data consistency across private network nodes.
+- **Filecoin**: A decentralized storage network that transforms cloud storage into an algorithmic market. Filecoin's robust and secure storage capabilities serve as the foundation for WarmStorageChain's data storage.
+- **Tendermint ABCI (Application Blockchain Interface)**: The ABCI layer connects the blockchain with external processes, such as Filecoin retrieval tools. This integration allows WarmStorageChain to fetch Content Identifiers (CIDs) from Filecoin and store the retrieved data on blockchain nodes.
+- **Lassie**: Filecoin's file retrieval tool, which is used to efficiently retrieve data from the Filecoin network based on the provided CIDs.
 
-## Features
+## III. Key Features
 
-- **Heating Layer2 chain**: Keeps Filecoin-stored data in an optimal state for quick access and reliability, addressing the cold storage problem.
 - **Filecoin Integration**: Leverages Filecoin for decentralized, secure, and scalable file storage.
+- **Heating Layer2 Chain**: Keeps frequently accessed data in an optimal state for quick access, addressing the cold storage problem and enhancing data reliability.
 - **Enhanced Efficiency**: Reduces latency and improves data retrieval times through an innovative heating mechanism.
-- **Interoperability**: Ensures seamless interaction between different blockchain networks within the Cosmos ecosystem.
-- **High Availability**: Uses RAFT consensus algorithm in a private network to ensure data availability and consistency.
 
-## How It Works
+## IV. Detailed Workflow
 
-### The Heating Layer 2 Concept
+1. **Data Storage**: Data is initially stored on the Filecoin network using its decentralized storage protocol.
+2. **Data Retrieval via Tendermint ABCI and Filecoin Lassie Tool**: When a user submits a CID from the Filecoin storage network, WarmStorageChain receives this CID and begins the retrieval process.
+3. **Payment Processing**: The user pays a fee for the retrieval service. Once the payment is confirmed, the blockchain ABCI function is triggered.
+4. **Data Retrieval Using Lassie**: The ABCI layer uses Filecoin's Lassie retrieval tool to fetch the data associated with the CID.
+5. **Storing Retrieved Data**: Upon successful retrieval, WarmStorageChain stores the data on the disk storage of the blockchain nodes.
+6. **Transaction Logging**: The retrieval and storage transaction is recorded on the blockchain, ensuring transparency and traceability.
+7. **Data Access**: When a data request is made, the heating Layer2 ensures that the data is quickly retrieved from the blockchain nodes' storage, reducing latency and improving efficiency.
 
-In a decentralized storage system like Filecoin, data is typically stored in a manner that prioritizes security and redundancy. However, this can sometimes result in slower access times, especially for data that is not frequently accessed. The heating Layer 2 in WarmStorageChain mitigates this by maintaining a subset of the data in a 'warm' state, ensuring that it can be accessed quickly when needed.
+## V. Integration and Interoperability
 
-### Integration with Cosmos, Filecoin, and ABCI
+WarmStorageChain's integration with Filecoin allows it to leverage Filecoin's decentralized storage capabilities effectively. The use of the Tendermint ABCI layer ensures that WarmStorageChain can seamlessly interact with Filecoin retrieval tools, enabling efficient data management and access.
 
-- **Cosmos SDK**: The Cosmos SDK provides the tools to build a custom blockchain that can interact with other blockchains in the Cosmos ecosystem. This interoperability is crucial for ensuring that WarmStorageChain can interact seamlessly with other decentralized applications and services.
-- **Filecoin**: Filecoin is used for its robust, decentralized file storage capabilities. The heating Layer 2 adds an additional layer of optimization on top of Filecoin's storage, ensuring that frequently accessed data is kept warm and quickly accessible.
-- **ABCI Layer**: The Application Blockchain Interface (ABCI) layer connects the Cosmos blockchain with external processes, enabling integration with Filecoin retrieval tools. This allows the system to fetch Content Identifiers (CIDs) from Filecoin and store the retrieved data on the blockchain nodes.
-- **RAFT Consensus Algorithm**: RAFT ensures that data is consistently replicated across nodes in the private network, providing high availability and reliability.
+## VI. Benefits
 
-### Workflow
+- **Reduced Latency**: By maintaining frequently accessed data in a warm state, WarmStorageChain significantly reduces data retrieval times.
+- **Enhanced Interoperability**: Uses the ABCI protocol to interact seamlessly with Filecoin and other blockchain networks.
 
-1. **Data Storage**: Data is stored on the Filecoin network using its decentralized storage protocol.
-3. **Data Retrieval via ABCI**: When data needs to be accessed, the ABCI layer retrieves the data using Filecoin's retrieval tools based on the Content Identifier (CID).
-4. **Heating Process**: Frequently accessed data is moved to the heating layer, ensuring it remains in a warm state for quick retrieval.
-5. **Blockchain Storage**: The retrieved data is stored in the memory and disk storage of the blockchain nodes, ensuring fast access. The data storage utilizes the RAFT consensus algorithm to maintain consistency and high availability.
-6. **Data Retrieval**: When a data request is made, the heating Layer2 ensures that the data is quickly retrieved, reducing latency and improving efficiency.
+## VII. How It's Made
 
-## Get started
+### VII.I Technologies Used
 
-```
-ignite chain serve
-```
+- **Filecoin**: Primary storage layer, providing secure and scalable storage.
+- **Tendermint ABCI**: Customized interaction with Filecoin and Lassie.
+- **Lassie (Filecoin's Tool)**: Efficiently retrieves data based on CIDs.
 
-`serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
+### VII.II Architecture
 
-### Configure
-
-Your blockchain in development can be configured with `config.yml`. 
-
-### Web Frontend
-
-Ignite CLI has scaffolded a Vue.js-based web app in the `vue` directory. Run the following commands to install dependencies and start the app:
+The following diagram illustrates the WarmStorageChain architecture:
 
 ```
-cd vue
-npm install
-npm run serve
++---------------------+     +--------------------+
+|  User CID Submission|     |  Payment Processing|
+|      (Client)       |     |      (Client)      |
++----------+----------+     +----------+---------+
+           |                           |
+           |                           |
+           v                           v
++----------+----------+     +----------+---------+
+| WarmStorageChain API|     |     ABCI Function  |
+|  (Receive CID & Fee) |     |   (Trigger Lassie)|
++----------+----------+     +----------+---------+
+           |                           |
+           v                           v
++----------+----------+     +----------+---------+
+| Lassie Retrieval Tool|     |Filecoin Storage   |
+|  (Fetch Data via CID)|     |  (Decentralized)  |
++----------+----------+     +----------+---------+
+           |                           |
+           v                           v
++----------+----------+     +----------+---------+
+|   Store Data on     |     | Transaction Logging|
+| WarmStorageChain Node|     | (Blockchain Record)|
+|    (Heating Layer2)  |     |                   |
++----------+----------+     +----------+---------+
+           |
+           v
++----------+----------+
+|  Gateway Access     |
+|  (Retrieve Data)    |
++---------------------+
 ```
 
-## Contributing
+### VII.III Challenges and Solutions
 
-We welcome contributions from the community. To contribute:
+- **Seamless Integration**: Customized Tendermint ABCI logic for efficient Filecoin-ABCI communication.
+- **Data Storage Enhancement**: 'Hot Storage Tier' design improves access speed by storing data on blockchain nodes' disks.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add new feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a Pull Request.
+### VII.IV Partner Technologies
 
-## License
+- **Filecoin**: Robust decentralized storage foundation.
+- **Tendermint ABCI**: Facilitates efficient external process integration.
+- **Lassie**: Faster data retrieval, ensuring 'hot' data availability.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### VII.V Notable Innovations
+
+- **Custom ABCI Logic**: Enhances interaction efficiency for rapid data retrieval.
+- **'Hot Storage and Retrieval Tier' Design**: Optimizes Filecoin access speed by storing data internally on blockchain nodes' disks.
+
+## VIII. Get Started
+
+### VIII.I Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+- You have installed [Golang](https://golang.org/doc/install).
+- You have installed [Filecoin lassie](https://github.com/filecoin-project/lassie/)
+- You have installed [cosmos ignite](https://ignite.com/).
+- You have installed [node](https://nodejs.org/en/download/package-manager).
+- You have installed [pnpm](https://pnpm.io/installation).
+
+### VIII.II Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/BlockCraftsman/WarmStorageChain.git
+    cd WarmStorageChain
+    ```
+
+2. Build and run blockchain:
+    ```bash
+    cd WarmStorageChain
+    ignite chain serve
+    ```
+
+3. run blockchain client vue app:
+    ```bash
+    cd WarmStorageChain/vue
+    pnpm install
+    pnpm run dev
+    ```
+
+## IX. Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+### IX.I How to Contribute
+
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m -s 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+### IX.II Code of Conduct
+
+Please read the [Code of Conduct](CODE_OF_CONDUCT.md) to understand the expectations for contributors.
+
+### IX.III License
+
+Distributed under the MIT License. See `LICENSE` for more information.
