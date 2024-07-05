@@ -1,4 +1,5 @@
 # WarmStorageChain: Revolutionizing Decentralized Data Retrieval
+
 In the rapidly evolving world of decentralized storage, latency and accessibility have been significant pain points. As data gets distributed across a vast network of nodes, retrieval times can suffer, impacting the user experience. Enter WarmStorageChain, an innovative open-source project that introduces a hot storage tier blockchain solution to the Filecoin storage network. By keeping data in a 'warm' state, WarmStorageChain ensures quick retrieval, reduced latency, and high availability, transforming how decentralized storage systems function.
 
 ## **I. The Problem with Decentralized Storage**
@@ -1203,7 +1204,7 @@ The following diagram illustrates the challenges faced and the corresponding sol
 
 These innovations collectively enhance WarmStorageChain's capabilities, making it a cutting-edge solution for decentralized storage and retrieval challenges.
 
-## **VIII.**Conclusion
+## **VIII. Conclusion **
 
 WarmStorageChain represents a groundbreaking leap in decentralized storage solutions, bridging the gap between efficiency, security, and accessibility. Its innovative approach, characterized by a hot storage tier blockchain integrated with Filecoin's robust network, ensures that data remains readily available for quick retrieval while maintaining stringent security measures.
 
@@ -1213,7 +1214,7 @@ Scalability and performance are core pillars of WarmStorageChain's design, allow
 
 In essence, WarmStorageChain not only addresses the inherent challenges of decentralized storage but also sets new standards in terms of efficiency, security, and user experience. It represents a transformative step towards a more accessible, secure, and efficient data storage ecosystem in the realm of blockchain technology.
 
-## **IX.** Get Started
+## ** IX. Get Started **
 
 ### IX.I Prerequisites
 
@@ -1250,7 +1251,7 @@ Before you begin, ensure you have met the following requirements:
 https://github.com/BlockCraftsman/WarmStorageChain/assets/167502426/30c9622d-932e-4cf8-b9a9-e774985928ec
 
 
-## X. Contributing
+## ** X. Contributing **
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
