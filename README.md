@@ -1214,7 +1214,7 @@ Scalability and performance are core pillars of WarmStorageChain's design, allow
 
 In essence, WarmStorageChain not only addresses the inherent challenges of decentralized storage but also sets new standards in terms of efficiency, security, and user experience. It represents a transformative step towards a more accessible, secure, and efficient data storage ecosystem in the realm of blockchain technology.
 
-## ** IX. Get Started **
+## **IX. Get Started **
 
 ### IX.I Prerequisites
 
@@ -1251,7 +1251,7 @@ Before you begin, ensure you have met the following requirements:
 https://github.com/BlockCraftsman/WarmStorageChain/assets/167502426/30c9622d-932e-4cf8-b9a9-e774985928ec
 
 
-## ** X. Contributing **
+## **X. Contributing **
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
