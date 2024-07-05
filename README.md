@@ -1,3 +1,8 @@
+<p align="center">
+<img width="100%" alt="image" src="https://github.com/IceFireLabs/WarmStorageChain/assets/34047788/4e37bbd5-b65f-49bd-a6ec-d188e17be3bd">
+</p>
+
+
 # WarmStorageChain: Revolutionizing Decentralized Data Retrieval
 
 In the rapidly evolving world of decentralized storage, latency and accessibility have been significant pain points. As data gets distributed across a vast network of nodes, retrieval times can suffer, impacting the user experience. Enter WarmStorageChain, an innovative open-source project that introduces a hot storage tier blockchain solution to the Filecoin storage network. By keeping data in a 'warm' state, WarmStorageChain ensures quick retrieval, reduced latency, and high availability, transforming how decentralized storage systems function.
