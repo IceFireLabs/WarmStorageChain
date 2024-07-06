@@ -21,3 +21,4 @@
 go.work
 go.work.sum
 cid_data_dir/
+bin/
